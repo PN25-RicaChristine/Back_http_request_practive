@@ -9,6 +9,7 @@ const artist_controller = require('../controllers/artist.controller');
 router.post('/', artist_controller.create);
 router.get('/', artist_controller.getAll);
 router.get('/:artistId', artist_controller.getById);
+router.put('/:artistId', artist_controller.updateById);
 router.delete('/:artistId', artist_controller.delete);
 
 module.exports = router;

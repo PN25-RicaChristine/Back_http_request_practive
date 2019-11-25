@@ -44,6 +44,21 @@ exports.getById = (req, res) => {
 }
 
 /**
+ * Function used to update artist by his Id.
+ */
+exports.updateById = (req, res) => {
+    Artist.findByIdAndUpdate(req.params.artistId, 
+        { $set: { lastName:  req.body.lastName
+        , nationality:  req.body.nationality}} ,
+        { new: true},
+        (err, artist) => {
+        if(err){
+            res.send(err);
+        }
+        res.json(artist);
+    });
+}
+/**
  * Function used to delete by id an artist.
  */
 exports.delete = (req, res) => {
